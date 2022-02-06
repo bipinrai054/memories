@@ -18,11 +18,10 @@ export const createPost = async (req, res) => {
     creator,
     tags,
   });
-  res.status(201).json(newPost);
   try {
     await newPost.save();
-    res.status(201).json(newPost);
+    return res.status(201).json(newPost);
   } catch (err) {
-    res.status(409).json({ message: err.message });
+    return res.status(409).json({ message: err.message });
   }
 };
