@@ -1,0 +1,55 @@
+Arguments: 
+  /home/bipinrai054/.nvm/versions/node/v16.13.2/bin/node /home/bipinrai054/.yarn/bin/yarn.js
+
+PATH: 
+  /home/bipinrai054/.nvm/versions/node/v16.13.2/bin:/home/bipinrai054/.yarn/bin:/home/bipinrai054/.config/yarn/global/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Python39/Scripts/:/mnt/c/Python39/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/LENOVO L340/AppData/Roaming/nvm:/mnt/c/Program Files/nodejs:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Users/LENOVO L340/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/LENOVO L340/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Visual Studio Code:/usr/local/share/npm/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.13.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /mnt/c/Users/LENOVO L340/OneDrive/Documents/projects/memories/package.json: Unexpected string in JSON at position 455
+      at JSON.parse (<anonymous>)
+      at /home/bipinrai054/.yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/home/bipinrai054/.yarn/lib/cli.js:310:30)
+      at /home/bipinrai054/.yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "memories",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+  "server":"cd server && yarn start",
+       "client":"cd client && yarn start",
+      "dev":"concurrently \"yarn run server\"\"yarn run client\""
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/bipinrai054/memories.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+  "dependencies":{
+     "concurrently":"^7.0.0"
+  }
+    "bugs": {
+      "url": "https://github.com/bipinrai054/memories/issues"
+    },
+    "homepage": "https://github.com/bipinrai054/memories#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
