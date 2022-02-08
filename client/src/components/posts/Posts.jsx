@@ -12,7 +12,7 @@ import Post from './post/Post';
 // makeStyles
 import useStyles from './styles';
 
-const Posts = () => {
+const Posts = ({ setCurrentId }) => {
   const classes = useStyles();
   const posts = useSelector((state) => state.posts);
   console.log(posts);
@@ -28,7 +28,7 @@ const Posts = () => {
       {posts.map((post) => {
         return (
           <Grid key={post._id} item xs={12} sm={6}>
-            <Post post={post} />
+            <Post post={post} setCurrentId={setCurrentId} />
           </Grid>
         );
       })}
