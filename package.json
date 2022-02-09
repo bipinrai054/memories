@@ -6,7 +6,8 @@
   "scripts": {
     "server": "cd server && yarn start",
     "client": "cd client && yarn start",
-    "dev": "concurrently \"yarn run server\" \" yarn run client\""
+    "dev": "concurrently \"yarn run server\" \" yarn run client\"",
+    "start": "react-scripts start"
   },
   "repository": {
     "type": "git",
