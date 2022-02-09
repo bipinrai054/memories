@@ -16,6 +16,9 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors());
 
 app.use('/posts', postRoutes);
+app.use('/', (req, res) => {
+  res.send('Memories API');
+});
 
 // const CONNECTION_URL =
 //   'mongodb+srv://test:test@cluster0.sqlgc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
