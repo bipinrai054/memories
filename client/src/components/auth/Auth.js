@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Avatar,
   Button,
@@ -18,12 +18,19 @@ export default function Auth() {
 
   const [showPassword, setShowPassword] = React.useState(false);
 
-  const isSignUp = true;
+  const [isSignUp, setIsSignUp] = useState(false);
 
   const handleSubmit = () => {};
+
   const handleChange = () => {};
+
   const handleShowPassword = () =>
     setShowPassword((prevShowPassword) => !prevShowPassword);
+
+  const switchMode = () => {
+    setIsSignUp((prevIsSignUp) => !prevIsSignUp);
+    handleShowPassword(false);
+  };
 
   return (
     <Container component='main' maxWidth='xs'>
@@ -83,6 +90,15 @@ export default function Auth() {
           >
             {isSignUp ? 'Sign Up' : 'Sign In'}
           </Button>
+          <Grid container justify='flex-end'>
+            <Grid item>
+              <Button onClick={switchMode}>
+                {isSignUp
+                  ? 'Already have an account? Sign In'
+                  : "Don't have an account? Sign Up"}
+              </Button>
+            </Grid>
+          </Grid>
         </form>
       </Paper>
     </Container>
