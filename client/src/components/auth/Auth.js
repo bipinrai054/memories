@@ -18,7 +18,7 @@ export default function Auth() {
 
   const [showPassword, setShowPassword] = React.useState(false);
 
-  const isSignUp = false;
+  const isSignUp = true;
 
   const handleSubmit = () => {};
   const handleChange = () => {};
@@ -68,13 +68,21 @@ export default function Auth() {
             {isSignUp && (
               <Input
                 name='confirmPassword'
-                label='Repeat Password'
+                label='Confirm Password'
                 handleChange={handleChange}
                 type='password'
               />
             )}
           </Grid>
-          <Button type='submit' fullWidth></Button>
+          <Button
+            type='submit'
+            fullWidth
+            variant='contained'
+            color='primary'
+            className={classes.submit}
+          >
+            {isSignUp ? 'Sign Up' : 'Sign In'}
+          </Button>
         </form>
       </Paper>
     </Container>
