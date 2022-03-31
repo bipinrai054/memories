@@ -15,8 +15,13 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   const classes = useStyles();
 
-  const user = null;
+  const [user,setUser] = React.useState(JSON.parse(localStorage.getItem('profile')));
 
+  React.useEffect(()=>{
+      const token = user?.token;
+      setUser(JSON.parse(localStorage.getItem('profile'))); 
+  },[])
+    
   return (
     <AppBar className={classes.appBar} position='static' color='inherit'>
       <div className={classes.brandContainer}>
