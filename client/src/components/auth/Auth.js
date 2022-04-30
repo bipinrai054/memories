@@ -18,22 +18,44 @@ import {useDispatch} from 'react-redux'
 
 import {useNavigate} from 'react-router-dom'
 
+import {signin,signup} from '../../actions/auth'
+
 // components
 import Input from './Input';
 import Icon from './icon';
+
+const initialState = {
+  firstName:'',
+  lastName:'',
+  email:'',
+  password:'',
+  confirmPassword:'',
+}
 
 export default function Auth() {
   
   const [showPassword, setShowPassword] = React.useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
-  
+  const [formData, setFormData] = useState(initialState)
+
   const classes = useStyles();
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if(isSignUp){
+      dispatch(signup(formData,history))
+    }else{
+      dispatch(signin(formData,history))
+    }
 
-  const handleChange = () => {};
+  };
+
+  const handleChange = (e) => {
+    setFormData({...formData, [e.target.name]:e.target.value})
+  };
 
   const handleShowPassword = () =>
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -81,8 +103,8 @@ export default function Auth() {
                   half
                 />
                 <Input
-                  name='firstname'
-                  label='First Name'
+                  name='lastnames'
+                  label='Last Name'
                   handleChange={handleChange}
                   half
                 />
