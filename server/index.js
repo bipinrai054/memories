@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 
 // routes
 import postRoutes from './routes/posts.js';
+import userRoutes from './routes/users.js'
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors());
 
 app.use('/posts', postRoutes);
+app.use('/user', userRoutes)
 app.use('/', (req, res) => {
   res.send('Memories API');
 });
