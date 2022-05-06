@@ -14,47 +14,45 @@ import { GoogleLogin } from 'react-google-login';
 
 import useStyles from './styles';
 
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux';
 
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
-import {signin,signup} from '../../actions/auth'
+import { signin, signup } from '../../actions/auth';
 
 // components
 import Input from './Input';
 import Icon from './icon';
 
 const initialState = {
-  firstName:'',
-  lastName:'',
-  email:'',
-  password:'',
-  confirmPassword:'',
-}
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+};
 
 export default function Auth() {
-  
   const [showPassword, setShowPassword] = React.useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
-  const [formData, setFormData] = useState(initialState)
+  const [formData, setFormData] = useState(initialState);
 
   const classes = useStyles();
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    if(isSignUp){
-      dispatch(signup(formData,history))
-    }else{
-      dispatch(signin(formData,history))
-    }
 
+    if (isSignUp) {
+      dispatch(signup(formData, navigate));
+    } else {
+      dispatch(signin(formData, navigate));
+    }
   };
 
   const handleChange = (e) => {
-    setFormData({...formData, [e.target.name]:e.target.value})
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleShowPassword = () =>
@@ -62,23 +60,22 @@ export default function Auth() {
 
   const switchMode = () => {
     setIsSignUp((prevIsSignUp) => !prevIsSignUp);
-    handleShowPassword(false);
+    // handleShowPassword(false);
+    setShowPassword(false);
   };
 
   const googleSuccess = async (res) => {
-
     const result = res?.profileObj;
     const token = res?.tokenId;
 
-    try{  
-      dispatch({type:'AUTH',data:{result,token}})
-      navigate('/')
-      console.log(result)
-    }catch(err){
+    try {
+      dispatch({ type: 'AUTH', data: { result, token } });
+      navigate('/');
+      console.log(result);
+    } catch (err) {
       console.log(err);
     }
-
-  };  
+  };
 
   const googleFailure = () => {
     console.log('Google Sign In was unsuccessful. Try again later');
@@ -142,7 +139,7 @@ export default function Auth() {
           >
             {isSignUp ? 'Sign Up' : 'Sign In'}
           </Button>
-          <GoogleLogin 
+          <GoogleLogin
             clientId='32828521552-r58u86t5q1mrn3ufcvnkhabkota45doc.apps.googleusercontent.com'
             render={(renderProps) => (
               <Button
