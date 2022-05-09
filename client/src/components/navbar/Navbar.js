@@ -23,6 +23,7 @@ const Navbar = () => {
 
   const [user,setUser] = React.useState(JSON.parse(localStorage.getItem('profile')));
 
+
   React.useEffect(()=>{
       const token = user?.token;
       setUser(JSON.parse(localStorage.getItem('profile'))); 

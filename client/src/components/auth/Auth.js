@@ -44,6 +44,8 @@ export default function Auth() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    console.log(formData)
+
     if (isSignUp) {
       dispatch(signup(formData, navigate));
     } else {
@@ -52,6 +54,7 @@ export default function Auth() {
   };
 
   const handleChange = (e) => {
+    console.log(e.target.name,e.target.value)
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -93,14 +96,14 @@ export default function Auth() {
             {isSignUp && (
               <>
                 <Input
-                  name='firstname'
+                  name='firstName'
                   label='First Name'
                   handleChange={handleChange}
                   autoFocus
                   half
                 />
                 <Input
-                  name='lastnames'
+                  name='lastName'
                   label='Last Name'
                   handleChange={handleChange}
                   half
